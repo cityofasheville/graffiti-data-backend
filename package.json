@@ -1,0 +1,11 @@
+{
+  "name": "graffiti-data-backend",
+  "version": "0.0.0",
+  "description": "Some backend node processes for the COA Graffiti Dashboard",
+  "main": "graffiti-data-backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cameron Carlyle CCarlyle@ashevillenc.gov",
+  "license": "MIT"
+}
