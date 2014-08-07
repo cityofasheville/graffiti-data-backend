@@ -18,9 +18,9 @@ var appConfig = {
   pathToWriteOutputs : '../htdocs/Graffiti-Dashboard/data/',
   //pathToWriteOutputs : '',
   //
-  totalParticpatingRequestsFileName : "TotalParticpatingRequests",
-  openParticpatingRequestsFileName : "OpenParticpatingRequests",
-  completedParticpatingRequestsFileName : "CompletedParticpatingRequests",
+  totalParticpatingRequestsFileName : "TotalParticipatingRequests",
+  openParticpatingRequestsFileName : "OpenParticipatingRequests",
+  completedParticpatingRequestsFileName : "CompletedParticipatingRequests",
   //These are the fields that will be used in the CSV files and HTML tables for total and completed participating requests
   totalParticpatingRequestsFields : [
     'RequestID',
