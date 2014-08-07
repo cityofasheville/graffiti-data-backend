@@ -16,6 +16,7 @@ var appConfig = {
   interval : 60000,
   //Path to data folder on Apache server
   pathToWriteOutputs : '../htdocs/Graffiti-Dashboard/data/',
+  //pathToWriteOutputs : '',
   //
   totalParticpatingRequestsFileName : "TotalParticpatingRequests",
   openParticpatingRequestsFileName : "OpenParticpatingRequests",
@@ -25,6 +26,8 @@ var appConfig = {
     'RequestID',
     'Status',
     'Address',
+    'Latitude',
+    'Longitude',
     'DateCreated', 
     'DateClosed', 
     'Description',
@@ -39,6 +42,8 @@ var appConfig = {
     'RequestID',
     'Status',
     'Address',
+    'Latitude',
+    'Longitude',
     'DateCreated', 
     'Description',
     'ParticipantPropertyType',
@@ -138,8 +143,12 @@ var filterAndFlattenResponseFromPubstuff = function(pubstuff){
       RequestID : pubstuff.response.requests[i].request.id,
       Status : pubstuff.response.requests[i].request.status,
       Address : pubstuff.response.requests[i].request.address,
+      Latitude : pubstuff.response.requests[i].request.lat,
+      Longitude : pubstuff.response.requests[i].request.lon,
+      ImageThumbnail : pubstuff.response.requests[i].request.image_thumbnail,
       //UNIX timestamp, so convert to milliseconds and make a date string
       DateCreated : new Date(pubstuff.response.requests[i].request.date_created*1000).toDateString(),
+      DateCreatedInMillseconds : pubstuff.response.requests[i].request.date_created*1000,
       Description : pubstuff.response.requests[i].request.description
     }
     //date_closed property can either be a string 'null' or a UNIX timestamp
