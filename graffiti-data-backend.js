@@ -159,24 +159,28 @@ var filterAndFlattenResponseFromPubstuff = function(pubstuff){
       request.DateClosed = new Date(pubstuff.response.requests[i].request.date_closed*1000).toDateString()
     }
     //Flatten the nested custom fields
-    for(var x = 0; x < pubstuff.response.requests[i].request.custom_fields.length; x++){
-      //store custom field value and name
-      var cfValue = pubstuff.response.requests[i].request.custom_fields[x].custom_field.value;
-      var cfName = pubstuff.response.requests[i].request.custom_fields[x].custom_field.name;
-      if(cfName === "Graffiti Initiative Participant Property Type:"){
-        request.ParticipantPropertyType = (cfValue === undefined)? "null" : cfValue; 
-      }else if(cfName === "Additional Location Information and Notes:"){
-        request.AdditionalInformation = (cfValue === undefined)? "null" : cfValue;
-      }else if(cfName === "Investment by City ($):"){
-        request.InvestmentByCity = (cfValue === undefined)? "null" : cfValue;
-      }else if(cfName === "Cost to Property Owner ($):"){
-        request.CostToPropertyOwner = (cfValue === undefined)? "null" : cfValue;
-      }else if(cfName === "Work Order Number:"){
-        request.WorkOrderNumber = (cfValue === undefined)? "null" : cfValue;
-      }else{
-        //Do nothing
+
+    if(pubstuff.response.requests[i].request.custom_fields){
+      for(var x = 0; x < pubstuff.response.requests[i].request.custom_fields.length; x++){
+        //store custom field value and name
+        var cfValue = pubstuff.response.requests[i].request.custom_fields[x].custom_field.value;
+        var cfName = pubstuff.response.requests[i].request.custom_fields[x].custom_field.name;
+        if(cfName === "Graffiti Initiative Participant Property Type:"){
+          request.ParticipantPropertyType = (cfValue === undefined)? "null" : cfValue; 
+        }else if(cfName === "Additional Location Information and Notes:"){
+          request.AdditionalInformation = (cfValue === undefined)? "null" : cfValue;
+        }else if(cfName === "Investment by City ($):"){
+          request.InvestmentByCity = (cfValue === undefined)? "null" : cfValue;
+        }else if(cfName === "Cost to Property Owner ($):"){
+          request.CostToPropertyOwner = (cfValue === undefined)? "null" : cfValue;
+        }else if(cfName === "Work Order Number:"){
+          request.WorkOrderNumber = (cfValue === undefined)? "null" : cfValue;
+        }else{
+          //Do nothing
+        }
       }
     }
+    
     //We only want private property and pending requests
     if(request.ParticipantPropertyType === "3: Private Property" ||  request.ParticipantPropertyType === "0: Pending"){
       totalParticpatingRequestsFilteredAndFlattened.push(request)
