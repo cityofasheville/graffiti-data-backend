@@ -11,7 +11,7 @@ var appConfig = {
   //urlHost is the host name of the url e.g. 'www.random.org'
   urlHost : 'www.publicstuff.com',
   //urlPath is the rest of the url e.g. '/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
-  urlPath : '/api/2.0/requests_list?&after_timestamp=1401595200&api_key=i952rk495itu254sx21141j2d3je3x&limit=10000&request_type_id=11339&return_type=json&status=all&client_id=819&client_requests=1',
+  urlPath : '/api/2.0/requests_list?&after_timestamp=1401595200&api_key=XXXX&limit=10000&request_type_id=11339&return_type=json&status=all&client_id=819&client_requests=1',
   //interval is the interval that the application will wait before making another http request 
   interval : 1800000,
   //Path to data folder on Apache server
